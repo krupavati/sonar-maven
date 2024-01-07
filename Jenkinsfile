@@ -15,11 +15,12 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to tomcat server') {
-            steps {
-                script {
-                    deploy adapters: [tomcat9(credentialsId: 'deployer_user', path: '', url: 'http://65.2.181.199:8080/')], contextPath: null, war: '**/*.war'
-                }
+    }
+
+    stage('Deploy to tomcat server') {
+        steps {
+            script {
+                deploy adapters: [tomcat9(credentialsId: 'deployer_user', path: '', url: 'http://65.2.181.199:8080/')], contextPath: null, war: '**/*.war'
             }
         }
     }
